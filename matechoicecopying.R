@@ -32,31 +32,31 @@ library(sjlabelled)
 library(brms)
 library(irr)
 
-hfemale_l<-read.table(file="C:\\Users\\nojik\\R\\meanhlf_2.txt",header=TRUE)
-hfemale_s<-read.table(file="C:\\Users\\nojik\\R\\meanhsf_2.txt",header=TRUE)
-hfemale_t<-read.table(file="C:\\Users\\nojik\\R\\meanhtf_2.txt",header=TRUE)
-ofemale_l<-read.table(file="C:\\Users\\nojik\\R\\meanolf_2.txt",header=TRUE)
-ofemale_s<-read.table(file="C:\\Users\\nojik\\R\\meanosf_2.txt",header=TRUE  )
-ofemale_t<-read.table(file="C:\\Users\\nojik\\R\\meanotf_2.txt",header=TRUE  )
-hmale_l<-read.table(file="C:\\Users\\nojik\\R\\meanhlm_2.txt",header=TRUE  )
-hmale_s<-read.table(file="C:\\Users\\nojik\\R\\meanhsm_2.txt",header=TRUE  )
-hmale_t<-read.table(file="C:\\Users\\nojik\\R\\meanhtm_2.txt",header=TRUE  )
-omale_l<-read.table(file="C:\\Users\\nojik\\R\\meanolm_2.txt",header=TRUE  )
-omale_s<-read.table(file="C:\\Users\\nojik\\R\\meanosm_2.txt",header=TRUE  )
-omale_t<-read.table(file="C:\\Users\\nojik\\R\\meanotm_2.txt",header=TRUE  )
+hfemale_l<-read.table(file="meanhlf_2.txt",header=TRUE)
+hfemale_s<-read.table(file="meanhsf_2.txt",header=TRUE)
+hfemale_t<-read.table(file="meanhtf_2.txt",header=TRUE)
+ofemale_l<-read.table(file="meanolf_2.txt",header=TRUE)
+ofemale_s<-read.table(file="meanosf_2.txt",header=TRUE  )
+ofemale_t<-read.table(file="meanotf_2.txt",header=TRUE  )
+hmale_l<-read.table(file="meanhlm_2.txt",header=TRUE  )
+hmale_s<-read.table(file="meanhsm_2.txt",header=TRUE  )
+hmale_t<-read.table(file="meanhtm_2.txt",header=TRUE  )
+omale_l<-read.table(file="meanolm_2.txt",header=TRUE  )
+omale_s<-read.table(file="meanosm_2.txt",header=TRUE  )
+omale_t<-read.table(file="meanotm_2.txt",header=TRUE  )
 
-hfemale_lp<-read.table(file="C:\\Users\\nojik\\R\\meanhlpf_2.txt",header=TRUE  )
-hfemale_sp<-read.table(file="C:\\Users\\nojik\\R\\meanhspf_2.txt",header=TRUE  )
-hfemale_tp<-read.table(file="C:\\Users\\nojik\\R\\meanhtpf_2.txt",header=TRUE  )
-ofemale_lp<-read.table(file="C:\\Users\\nojik\\R\\meanolpf_2.txt",header=TRUE  )
-ofemale_sp<-read.table(file="C:\\Users\\nojik\\R\\meanospf_2.txt",header=TRUE  )
-ofemale_tp<-read.table(file="C:\\Users\\nojik\\R\\meanotpf_2.txt",header=TRUE  )
-hmale_lp<-read.table(file="C:\\Users\\nojik\\R\\meanhlpm_2.txt",header=TRUE  )
-hmale_sp<-read.table(file="C:\\Users\\nojik\\R\\meanhspm_2.txt",header=TRUE  )
-hmale_tp<-read.table(file="C:\\Users\\nojik\\R\\meanhtpm_2.txt",header=TRUE  )
-omale_lp<-read.table(file="C:\\Users\\nojik\\R\\meanolpm_2.txt",header=TRUE  )
-omale_sp<-read.table(file="C:\\Users\\nojik\\R\\meanospm_2.txt",header=TRUE  )
-omale_tp<-read.table(file="C:\\Users\\nojik\\R\\meanotpm_2.txt",header=TRUE  )
+hfemale_lp<-read.table(file="meanhlpf_2.txt",header=TRUE  )
+hfemale_sp<-read.table(file="meanhspf_2.txt",header=TRUE  )
+hfemale_tp<-read.table(file="meanhtpf_2.txt",header=TRUE  )
+ofemale_lp<-read.table(file="meanolpf_2.txt",header=TRUE  )
+ofemale_sp<-read.table(file="meanospf_2.txt",header=TRUE  )
+ofemale_tp<-read.table(file="meanotpf_2.txt",header=TRUE  )
+hmale_lp<-read.table(file="meanhlpm_2.txt",header=TRUE  )
+hmale_sp<-read.table(file="meanhspm_2.txt",header=TRUE  )
+hmale_tp<-read.table(file="meanhtpm_2.txt",header=TRUE  )
+omale_lp<-read.table(file="meanolpm_2.txt",header=TRUE  )
+omale_sp<-read.table(file="meanospm_2.txt",header=TRUE  )
+omale_tp<-read.table(file="meanotpm_2.txt",header=TRUE  )
 
 
   hfl<- tidyr::gather(data=hfemale_l, key = subjid, value = point, -sample, -subject, -target)
@@ -92,19 +92,19 @@ omale_tp<-read.table(file="C:\\Users\\nojik\\R\\meanotpm_2.txt",header=TRUE  )
   #summary(model)
 
   model2 <- brm(point~subject2+target2+subject2:target2+(1|subjid)+(1|sample),data=Data,
-                prior   = NULL, #Ž–‘O•ª•z‚ðŽw’èBNULL‚Æ‹Lq‚µ‚½ê‡‚Íˆê—l•ª•z
-                chains  = 3, #chain‚Ì‰ñ”‚ðŽw’è
-                iter    = 10000,  #ŒJ‚è•Ô‚µ‚Ì‰ñ”‚ðŽw’è
-                warmup  = 5000 #ƒEƒH[ƒ€ƒAƒbƒv‚Ì‰ñ”‚ðŽw’è
+                prior   = NULL, #äº‹å‰åˆ†å¸ƒã‚’æŒ‡å®šã€‚NULLã¨è¨˜è¿°ã—ãŸå ´åˆã¯ä¸€æ§˜åˆ†å¸ƒ
+                chains  = 3, #chainã®å›žæ•°ã‚’æŒ‡å®š
+                iter    = 10000,  #ç¹°ã‚Šè¿”ã—ã®å›žæ•°ã‚’æŒ‡å®š
+                warmup  = 5000 #ã‚¦ã‚©ãƒ¼ãƒ ã‚¢ãƒƒãƒ—ã®å›žæ•°ã‚’æŒ‡å®š
   )
   
   summary(model2)
   
   model2 <- brm(point~subject2+target2+subject2:target2+(1|subjid)+(1|sample),data=Data2,
-                prior   = NULL, #Ž–‘O•ª•z‚ðŽw’èBNULL‚Æ‹Lq‚µ‚½ê‡‚Íˆê—l•ª•z
-                chains  = 3, #chain‚Ì‰ñ”‚ðŽw’è
-                iter    = 10000,  #ŒJ‚è•Ô‚µ‚Ì‰ñ”‚ðŽw’è
-                warmup  = 5000 #ƒEƒH[ƒ€ƒAƒbƒv‚Ì‰ñ”‚ðŽw’è
+                prior   = NULL, #äº‹å‰åˆ†å¸ƒã‚’æŒ‡å®šã€‚NULLã¨è¨˜è¿°ã—ãŸå ´åˆã¯ä¸€æ§˜åˆ†å¸ƒ
+                chains  = 3, #chainã®å›žæ•°ã‚’æŒ‡å®š
+                iter    = 10000,  #ç¹°ã‚Šè¿”ã—ã®å›žæ•°ã‚’æŒ‡å®š
+                warmup  = 5000 #ã‚¦ã‚©ãƒ¼ãƒ ã‚¢ãƒƒãƒ—ã®å›žæ•°ã‚’æŒ‡å®š
   )
   
   summary(model2)
@@ -112,20 +112,20 @@ omale_tp<-read.table(file="C:\\Users\\nojik\\R\\meanotpm_2.txt",header=TRUE  )
 
 
 model2 <- brm(point~subject2+target2+subject2:target2+(1|subjid)+(1|sample),data=Data3,
-              prior   = NULL, #Ž–‘O•ª•z‚ðŽw’èBNULL‚Æ‹Lq‚µ‚½ê‡‚Íˆê—l•ª•z
-              chains  = 3, #chain‚Ì‰ñ”‚ðŽw’è
-              iter    = 10000,  #ŒJ‚è•Ô‚µ‚Ì‰ñ”‚ðŽw’è
-              warmup  = 5000 #ƒEƒH[ƒ€ƒAƒbƒv‚Ì‰ñ”‚ðŽw’è
+              prior   = NULL, #äº‹å‰åˆ†å¸ƒã‚’æŒ‡å®šã€‚NULLã¨è¨˜è¿°ã—ãŸå ´åˆã¯ä¸€æ§˜åˆ†å¸ƒ
+              chains  = 3, #chainã®å›žæ•°ã‚’æŒ‡å®š
+              iter    = 10000,  #ç¹°ã‚Šè¿”ã—ã®å›žæ•°ã‚’æŒ‡å®š
+              warmup  = 5000 #ã‚¦ã‚©ãƒ¼ãƒ ã‚¢ãƒƒãƒ—ã®å›žæ•°ã‚’æŒ‡å®š
 )
 
 summary(model2)
 
 Data11<-subset(Data,subject==1)
 model2 <- brm(point~target2+(1|subjid)+(1|sample),data=Data11,
-              prior   = NULL, #Ž–‘O•ª•z‚ðŽw’èBNULL‚Æ‹Lq‚µ‚½ê‡‚Íˆê—l•ª•z
-              chains  = 4, #chain‚Ì‰ñ”‚ðŽw’è
-              iter    = 1000,  #ŒJ‚è•Ô‚µ‚Ì‰ñ”‚ðŽw’è
-              warmup  = 500 #ƒEƒH[ƒ€ƒAƒbƒv‚Ì‰ñ”‚ðŽw’è
+              prior   = NULL, #äº‹å‰åˆ†å¸ƒã‚’æŒ‡å®šã€‚NULLã¨è¨˜è¿°ã—ãŸå ´åˆã¯ä¸€æ§˜åˆ†å¸ƒ
+              chains  = 4, #chainã®å›žæ•°ã‚’æŒ‡å®š
+              iter    = 1000,  #ç¹°ã‚Šè¿”ã—ã®å›žæ•°ã‚’æŒ‡å®š
+              warmup  = 500 #ã‚¦ã‚©ãƒ¼ãƒ ã‚¢ãƒƒãƒ—ã®å›žæ•°ã‚’æŒ‡å®š
 )
 
 summary(model2)
@@ -169,10 +169,10 @@ summary(model)
 
 
 model2 <- brm(point~subject2+target2+subject2:target2+(1|subjid)+(1|sample),data=Data3,
-              prior   = NULL, #Ž–‘O•ª•z‚ðŽw’èBNULL‚Æ‹Lq‚µ‚½ê‡‚Íˆê—l•ª•z
-              chains  = 3, #chain‚Ì‰ñ”‚ðŽw’è
-              iter    = 10000,  #ŒJ‚è•Ô‚µ‚Ì‰ñ”‚ðŽw’è
-              warmup  = 5000 #ƒEƒH[ƒ€ƒAƒbƒv‚Ì‰ñ”‚ðŽw’è
+              prior   = NULL, #äº‹å‰åˆ†å¸ƒã‚’æŒ‡å®šã€‚NULLã¨è¨˜è¿°ã—ãŸå ´åˆã¯ä¸€æ§˜åˆ†å¸ƒ
+              chains  = 3, #chainã®å›žæ•°ã‚’æŒ‡å®š
+              iter    = 10000,  #ç¹°ã‚Šè¿”ã—ã®å›žæ•°ã‚’æŒ‡å®š
+              warmup  = 5000 #ã‚¦ã‚©ãƒ¼ãƒ ã‚¢ãƒƒãƒ—ã®å›žæ•°ã‚’æŒ‡å®š
 )
 
 summary(model2)
@@ -210,10 +210,10 @@ summary(model2)
   
   
   model2 <- brm(point~subject2+target2+subject2:target2+(1|subjid)+(1|sample),data=Data3,
-                prior   = NULL, #Ž–‘O•ª•z‚ðŽw’èBNULL‚Æ‹Lq‚µ‚½ê‡‚Íˆê—l•ª•z
-                chains  = 3, #chain‚Ì‰ñ”‚ðŽw’è
-                iter    = 10000,  #ŒJ‚è•Ô‚µ‚Ì‰ñ”‚ðŽw’è
-                warmup  = 5000 #ƒEƒH[ƒ€ƒAƒbƒv‚Ì‰ñ”‚ðŽw’è
+                prior   = NULL, #äº‹å‰åˆ†å¸ƒã‚’æŒ‡å®šã€‚NULLã¨è¨˜è¿°ã—ãŸå ´åˆã¯ä¸€æ§˜åˆ†å¸ƒ
+                chains  = 3, #chainã®å›žæ•°ã‚’æŒ‡å®š
+                iter    = 10000,  #ç¹°ã‚Šè¿”ã—ã®å›žæ•°ã‚’æŒ‡å®š
+                warmup  = 5000 #ã‚¦ã‚©ãƒ¼ãƒ ã‚¢ãƒƒãƒ—ã®å›žæ•°ã‚’æŒ‡å®š
   )
   
   summary(model2)
@@ -253,10 +253,10 @@ summary(model)
 
 
 model2 <- brm(point~subject2+target2+subject2:target2+(1|subjid)+(1|sample),data=Data3,
-              prior   = NULL, #Ž–‘O•ª•z‚ðŽw’èBNULL‚Æ‹Lq‚µ‚½ê‡‚Íˆê—l•ª•z
-              chains  = 3, #chain‚Ì‰ñ”‚ðŽw’è
-              iter    = 10000,  #ŒJ‚è•Ô‚µ‚Ì‰ñ”‚ðŽw’è
-              warmup  = 5000 #ƒEƒH[ƒ€ƒAƒbƒv‚Ì‰ñ”‚ðŽw’è
+              prior   = NULL, #äº‹å‰åˆ†å¸ƒã‚’æŒ‡å®šã€‚NULLã¨è¨˜è¿°ã—ãŸå ´åˆã¯ä¸€æ§˜åˆ†å¸ƒ
+              chains  = 3, #chainã®å›žæ•°ã‚’æŒ‡å®š
+              iter    = 10000,  #ç¹°ã‚Šè¿”ã—ã®å›žæ•°ã‚’æŒ‡å®š
+              warmup  = 5000 #ã‚¦ã‚©ãƒ¼ãƒ ã‚¢ãƒƒãƒ—ã®å›žæ•°ã‚’æŒ‡å®š
 )
 
 summary(model2)
